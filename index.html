@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CFT</title>
+</head>
+<body>
+    <header class="header">
+        <h2>Ранее сохраненные файлы</h2>
+        <form id="form">
+            <!-- <label for="first">Выбирете период</label> -->
+            <input type="text" name="first" id="first" placeholder="От" class="input_date">
+            <input type="text" name="two" id="two" placeholder="До" class="input_date">
+            <input list="type" id="list" name="list">
+
+            <datalist id="type">
+                <option value="PDF">
+                <option value="DOC">
+                <option value="TXT">
+            </datalist>
+            <button class="btn reset" type="reset">Очистить</button> 
+            <button class="btn send" type="submit">Отправить</button>
+        </form>
+    </header>
+    <section class="section">
+        <form id="load">
+            <label for="">Загрузить фаил</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Загрузить</button>
+        </form>
+    </section>
+    <main class="main">
+    </main>
+    <template id="tmp">
+        <div class="container">
+            <div class="type"></div>
+            <div class="info">
+                <div class="date">
+                    <div class="date_load"></div>
+                    <div class="date_container"></div>
+                </div>
+                <div class="file_name"></div><span class="sizefile"></span>
+                <div class="user_name"></div>
+            </div>
+            <div class="btn">
+                <button class="load">load file</button>
+                <button class="delete">delite</button>
+            </div>
+        </div>
+    </template>
+    <script src="./index.js""></script>
+</body>
+</html>

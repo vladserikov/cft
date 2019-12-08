@@ -1,0 +1,68 @@
+{
+  "files": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "type": "PDF",
+      "load": "5 1 2019",
+      "filesize": 23442342,
+      "filename": "Oddsso dsfodsfo sdf odsfsdf"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Lebsack",
+      "type": "DOC",
+      "load": "11 08 2019",
+      "filesize": 43262345,
+      "filename": "Kksdjad jsal kdd jsak"
+    },
+    {
+      "id": 5,
+      "name": "Chelsey Dietrich",
+      "type": "PDF",
+      "load": "02 10 2019",
+      "filesize": 2224589,
+      "filename": "Iskdjas kdja lksjd lkjd iw jalsjd lijas ldijs"
+    },
+    {
+      "id": 6,
+      "name": "Chelsey Dietrich",
+      "type": "PDF",
+      "load": "02 10 2019",
+      "filesize": 2224589,
+      "filename": "Iskdjas kdja lksjd lkjd iw jalsjd lijas ldijs"
+    },
+    {
+      "id": 7,
+      "name": "Chelsey Dietrich",
+      "type": "PDF",
+      "load": "02 10 2019",
+      "filesize": 2224589,
+      "filename": "Iskdjas kdja lksjd lkjd iw jalsjd lijas ldijs"
+    },
+    {
+      "id": 8,
+      "name": "Chelsey Dietrich",
+      "type": "PDF",
+      "load": "02 10 2019",
+      "filesize": 2224589,
+      "filename": "Iskdjas kdja lksjd lkjd iw jalsjd lijas ldijs"
+    },
+    {
+      "name": "Garik Harlamov",
+      "filename": "ubuntu-18.04.3-desktop-amd64",
+      "filesize": 2082816000,
+      "type": "ISO",
+      "load": "2019-12-08T13:51:59.124Z",
+      "id": 9
+    },
+    {
+      "name": "Garik Harlamov",
+      "filename": "react-handbook",
+      "filesize": 5638791,
+      "type": "PDF",
+      "load": "2019-12-08T13:52:56.492Z",
+      "id": 10
+    }
+  ]
+}

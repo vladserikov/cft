@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+body {
+  font-family: Roboto;
+}
+
+.header, .section, .main {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.header {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#form input {
+  height: 50px;
+  border-radius: 2px;
+  border: solid 1px #e9e9e9;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+}
+#form input[type=text], #form input[type=date] {
+  width: 180px;
+}
+#form .btn {
+  width: 144px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px #87a2e4;
+  transition: 0.2s;
+  font-size: 13px;
+  color: #87a2e4;
+  text-transform: uppercase;
+}
+#form .btn:hover {
+  background-color: #87a2e4;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
+  justify-items: center;
+  border-bottom: 1px solid #e9e9e9;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+.container:first-child {
+  border-top: 1px solid #e9e9e9;
+}
+
+.type {
+  color: #d51d4c;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 30px;
+  height: 30px;
+  align-self: flex-start;
+}
+
+.info {
+  width: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.date {
+  display: flex;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(63, 63, 63, 0.6);
+  width: 100%;
+}
+.date_load {
+  min-width: 40%;
+}
+
+.file_name {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #3f3f3f;
+}
+
+.sizefile {
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #87a2e4;
+}
+
+.user_name {
+  color: rgba(63, 63, 63, 0.6);
+  font-size: 13px;
+}
+
+.btn {
+  place-self: center;
+}
+
+@media only screen and (max-width: 320px) {
+  .header,
+.section,
+.main {
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr;
+    grid-template-areas: "type btn" "main main";
+  }
+
+  .type {
+    grid-area: type;
+  }
+
+  .btn {
+    grid-area: btn;
+  }
+
+  .info {
+    grid-area: main;
+    width: 90%;
+  }
+
+  .date {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=/cft.e31bb0bc.css.map */
