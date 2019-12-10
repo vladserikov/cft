@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CFT</title>
 <link rel="stylesheet" href="/cft.e31bb0bc.css"></head>
+
 <body>
     <header class="header">
         <h2>Ранее сохраненные файлы</h2>
-        <form id="form">
+        <form id="form" class="form">
             <!-- <label for="first">Выбирете период</label> -->
-            <input type="text" name="first" id="first" placeholder="От" class="input_date">
-            <input type="text" name="two" id="two" placeholder="До" class="input_date">
-            <input list="type" id="list" name="list">
-
-            <datalist id="type">
-                <option value="PDF">
-                </option><option value="DOC">
-                </option><option value="TXT">
-            </option></datalist>
-            <button class="btn reset" type="reset">Очистить</button> 
-            <button class="btn send" type="submit">Отправить</button>
+            <div class="form_data">
+                <input type="text" name="first" id="first" placeholder="От" class="input_date"> -
+                <input type="text" name="two" id="two" placeholder="До" class="input_date">
+            </div>
+            <div class="form_type">
+                <input list="type" id="list" name="list" placeholder="All">
+                <datalist id="type">
+                    <option value="PDF">
+                    </option><option value="DOC">
+                    </option><option value="TXT">
+                </option></datalist>
+            </div>
+            <div class="form_btn">
+                <button class="btn reset" type="reset">Очистить</button>
+                <button class="btn send" type="submit">Отправить</button>
+            </div>
         </form>
     </header>
     <section class="section">
-        <form id="load">
+        <form id="form_load" class="form_load">
             <label for="">Загрузить фаил</label>
             <input type="file" name="file" id="file" required="">
             <button type="submit">Загрузить</button>
@@ -44,9 +51,9 @@
                 <div class="file_name"></div><span class="sizefile"></span>
                 <div class="user_name"></div>
             </div>
-            <div class="btn">
-                <button class="load">load file</button>
-                <button class="delete">delite</button>
+            <div class="load_del">
+                <button class="load"><img src="/donload.7d1dbcc9.png" alt=""></button>
+                <button class="delete"><img src="/delete.7caba290.png" alt=""></button>
             </div>
         </div>
     </template>

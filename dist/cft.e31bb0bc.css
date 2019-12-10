@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +10,10 @@ body {
   font-family: Roboto;
 }
 
-.header, .section, .main {
-  width: 80vw;
+.header,
+.section,
+.main {
+  width: 85vw;
   margin: 0 auto;
 }
 
@@ -19,26 +22,58 @@ body {
   margin-bottom: 15px;
 }
 
-#form {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+h2 {
+  font-size: 22px;
 }
-#form input {
+
+input {
   height: 50px;
   border-radius: 2px;
   border: solid 1px #e9e9e9;
-  padding-left: 10px;
-  padding-right: 10px;
   font-size: 16px;
+  width: 150px;
+  text-indent: 20px;
 }
-#form input[type=text], #form input[type=date] {
-  width: 180px;
+input[type=date] {
+  height: 48px;
+  text-indent: 5px;
 }
-#form .btn {
-  width: 144px;
+
+.form {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  align-content: center;
+  font-size: 16px;
+  position: relative;
+}
+.form_data::before {
+  content: "Выберите период";
+  position: absolute;
+  top: -20px;
+}
+.form_type {
+  position: relative;
+}
+.form_type input {
+  width: 100%;
+}
+.form_type::before {
+  content: "Выберите тип";
+  position: absolute;
+  top: -20px;
+}
+.form_btn {
+  justify-self: end;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 140px;
   height: 50px;
   border-radius: 4px;
   background-color: #fff;
@@ -48,9 +83,15 @@ body {
   color: #87a2e4;
   text-transform: uppercase;
 }
-#form .btn:hover {
+
+.btn:hover {
   background-color: #87a2e4;
   color: #fff;
+}
+
+.section {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .container {
@@ -95,6 +136,14 @@ body {
   min-width: 40%;
 }
 
+.date_load::before {
+  content: "Дата загрузки: ";
+}
+
+.date_container::before {
+  content: "Хранить до: ";
+}
+
 .file_name {
   font-size: 18px;
   margin-top: 10px;
@@ -113,8 +162,22 @@ body {
   font-size: 13px;
 }
 
-.btn {
+.load_del {
   place-self: center;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.load, .delete {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  transition: 0.2s;
+}
+.load:hover, .delete:hover {
+  transform: translateY(-2px);
 }
 
 @media only screen and (max-width: 320px) {
@@ -123,6 +186,30 @@ body {
 .main {
     width: 90vw;
     margin: 0 auto;
+  }
+
+  .form {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 30px;
+  }
+  .form_data {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .form input {
+    width: 100%;
+  }
+  .form_btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .form .btn {
+    width: 138px;
   }
 
   .container {
@@ -135,7 +222,7 @@ body {
     grid-area: type;
   }
 
-  .btn {
+  .load_del {
     grid-area: btn;
   }
 
