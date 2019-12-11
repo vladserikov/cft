@@ -207,7 +207,7 @@ var main = document.querySelector('main'); // main tag
 
 var form = document.getElementById('form'); // form filter
 
-var load = document.getElementById('load'); // form load
+var load = document.getElementById('form_load'); // form load
 
 var file = document.getElementById('file'); // input load
 
@@ -249,9 +249,9 @@ function filterData(firstDay, lastDay, type) {
     });
   }
 
-  if (type) {
+  if (type.toUpperCase()) {
     copyData = copyData.filter(function (obj) {
-      return obj.type === type;
+      return obj.type === type.toUpperCase();
     });
   }
 
@@ -265,9 +265,10 @@ function deletFile(id) {
   }).then(function (res) {
     return res.json();
   }).then(function (resJson) {
-    return console.log(resJson);
+    arrData = arrData.filter(function (obj) {
+      return obj.id !== resJson.id;
+    });
   });
-  loadServerData();
 } // function for render use tag template
 
 
@@ -313,8 +314,7 @@ function renderData(arr) {
 function returnSize(size) {
   size = Number(size);
   var step = 1024;
-  var count = 0;
-  console.log(size, step);
+  var count = 0; // console.log(size, step);
 
   while (size / step > 1 || count > 3) {
     size = size / step;
@@ -338,23 +338,27 @@ function returnSize(size) {
 
 
 form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  console.log(e);
+  e.preventDefault(); // console.log(e);
+
   var first = form.querySelector('#first').value,
       two = form.querySelector('#two').value,
-      list = form.querySelector('#list').value;
-  console.log(first, two, list);
+      list = form.querySelector('#list').value; // console.log(first, two, list);
+
   main.innerHTML = '';
   filterData(first, two, list);
 }); // input file listener
 
 file.addEventListener('change', function (e) {
-  var fileLoad = file.files[0];
-  var name = fileLoad.name;
-  var strReg = /(?<=\.)\w+$/i;
-  var startStr = /^.+(?=\.)/i;
-  console.log(name.match(strReg));
-  console.log(name.match(startStr));
+  var fileLoad = file.files[0]; // const name = fileLoad.name
+  // const strReg = /(?<=\.)\w+$/i;
+  // const startStr = /^.+(?=\.)/i
+  // console.log(name.match(strReg))
+  // console.log(name.match(startStr))
+
+  var nameFile = document.querySelector('.input_file_text');
+  var icon = document.querySelector('.material-icons');
+  icon.textContent = "done";
+  nameFile.textContent = fileLoad.name;
 }); // function post data on server
 
 function postFile() {
@@ -367,10 +371,11 @@ function postFile() {
   var filename = fileLoad.name.match(startStr)[0]; // name file
 
   var type = fileLoad.name.match(typeStr)[0].toUpperCase(); // type file
-  // data for send server
+
+  var name = document.getElementById('name'); // data for send server
 
   var data = {
-    name: 'Garik Harlamov',
+    name: name.value,
     filename: filename,
     filesize: fileLoad.size,
     type: type,
@@ -386,6 +391,9 @@ function postFile() {
   }).then(function (res) {
     return res.json();
   }).then(function (data) {
+    name.value = '';
+    document.querySelector('.material-icons').textContent = 'input';
+    document.querySelector('.input_file_text').textContent = 'Выберите файл';
     loadServerData();
   });
 } // listener submit data
@@ -423,7 +431,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46499" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34525" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

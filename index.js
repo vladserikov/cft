@@ -3,7 +3,7 @@ import './src/scss/main.scss';
 const url = 'http://localhost:3001/files';
 const main = document.querySelector('main'); // main tag
 const form = document.getElementById('form'); // form filter
-const load = document.getElementById('load'); // form load
+const load = document.getElementById('form_load'); // form load
 const file = document.getElementById('file'); // input load
 const inputDate = Array.from(document.querySelectorAll('.input_date'));
 let arrData = []; // for data 
@@ -38,8 +38,8 @@ function filterData(firstDay, lastDay, type) {
     if(lastDay){
         copyData = copyData.filter(obj => new Date(lastDay) >= new Date(obj.load))
     }
-    if (type) {
-        copyData = copyData.filter(obj => obj.type === type)
+    if (type.toUpperCase()) {
+        copyData = copyData.filter(obj => obj.type === type.toUpperCase())
     }
     renderData(copyData)
 }
@@ -49,8 +49,10 @@ function deletFile(id) {
         method: 'delete',
         body: JSON.stringify(id)
     }).then(res => res.json())
-      .then(resJson => console.log(resJson))
-    loadServerData()
+      .then(resJson => {
+          arrData = arrData.filter(obj => obj.id !== resJson.id)
+      })
+    
 }
 
 // function for render use tag template
@@ -100,7 +102,7 @@ function returnSize(size){
     size = Number(size);
     const step = 1024;
     let count = 0;
-    console.log(size, step);
+    // console.log(size, step);
     while (size / step > 1 || count > 3) {
         size = size / step;
         count++
@@ -123,11 +125,11 @@ function returnSize(size){
 // listener send filter
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
     const first = form.querySelector('#first').value,
         two = form.querySelector('#two').value,
         list = form.querySelector('#list').value;
-    console.log(first, two, list);
+    // console.log(first, two, list);
     main.innerHTML = ''    
     filterData(first, two, list)
 })
@@ -135,11 +137,17 @@ form.addEventListener('submit', (e) => {
 // input file listener
 file.addEventListener('change', e => {
     const fileLoad = file.files[0];
-    const name = fileLoad.name
-    const strReg = /(?<=\.)\w+$/i;
-    const startStr = /^.+(?=\.)/i
-    console.log(name.match(strReg))
-    console.log(name.match(startStr))
+    // const name = fileLoad.name
+    // const strReg = /(?<=\.)\w+$/i;
+    // const startStr = /^.+(?=\.)/i
+    // console.log(name.match(strReg))
+    // console.log(name.match(startStr))
+
+    const nameFile = document.querySelector('.input_file_text');
+    const icon = document.querySelector('.material-icons');
+    icon.textContent = "done";
+    nameFile.textContent = fileLoad.name;
+
 })
 
 // function post data on server
@@ -149,10 +157,12 @@ function postFile() {
     const startStr = /^.+(?=\.)/i; // regex for search name
     const filename = fileLoad.name.match(startStr)[0]; // name file
     const type = fileLoad.name.match(typeStr)[0].toUpperCase(); // type file
-
+    const name = document.getElementById('name');
+    
+    
     // data for send server
     const data = {
-        name: 'Garik Harlamov',
+        name: name.value,
         filename,
         filesize: fileLoad.size,
         type,
@@ -169,6 +179,9 @@ function postFile() {
     })
         .then(res => res.json())
         .then(data => {
+            name.value = '';
+            document.querySelector('.material-icons').textContent = 'input';
+            document.querySelector('.input_file_text').textContent = 'Выберите файл';
             loadServerData()
         })
 }

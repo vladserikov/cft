@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CFT</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="/cft.e31bb0bc.css"></head>
 
 <body>
@@ -18,7 +19,7 @@
                 <input type="text" name="two" id="two" placeholder="До" class="input_date">
             </div>
             <div class="form_type">
-                <input list="type" id="list" name="list" placeholder="All">
+                <input list="type" id="list" name="list" placeholder="All" class="input_type">
                 <datalist id="type">
                     <option value="PDF">
                     </option><option value="DOC">
@@ -33,9 +34,15 @@
     </header>
     <section class="section">
         <form id="form_load" class="form_load">
-            <label for="">Загрузить фаил</label>
-            <input type="file" name="file" id="file" required="">
-            <button type="submit">Загрузить</button>
+            <label class="input_file">
+                <input type="file" name="file" id="file" required="">
+                <i class="material-icons">
+                    input
+                </i>
+                <span class="input_file_text">Выберите файл</span>
+            </label>
+            <input class="input_name" type="text" name="name" id="name" placeholder="Ваше имя и фамилия" required="">
+            <button class="btn form_load_btn" type="submit">Загрузить</button>
         </form>
     </section>
     <main class="main">
